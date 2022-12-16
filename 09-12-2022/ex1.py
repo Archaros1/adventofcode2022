@@ -12,7 +12,8 @@ def moveTail(xHead, yHead, xTail, yTail, travel):
             newYTail += 1
         if (yHead - newYTail <= -1):
             newYTail -= 1
-    travel[str(newXTail) + ',' + str(newYTail)] = 1
+    if not (str(newXTail) + ',' + str(newYTail) in travel):
+        travel.append(str(newXTail) + ',' + str(newYTail))
     return [newXTail, newYTail, travel]
 
 
@@ -25,7 +26,7 @@ xHead = 0
 yHead = 0
 xTail = 0
 yTail = 0
-travel = {}
+travel = []
 moveTail(xHead, yHead, xTail, yTail, travel)
 
 for line in my_list:
